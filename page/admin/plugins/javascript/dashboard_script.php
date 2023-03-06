@@ -1,0 +1,141 @@
+<script type="text/javascript">
+	
+	const emp_search =()=>{
+		var emp_id = document.getElementById('emp_id').value;
+		var emp_name = document.getElementById('emp_name').value;
+
+		console.log(emp_id)
+		console.log(emp_name)
+
+		$.ajax({
+			url: '../../process/admin/dashboard_backend.php',
+			type: 'POST',
+			cache: false,
+			data:{
+				method: 'load_emp',
+				emp_id:emp_id,
+				emp_name:emp_name
+			},success:function(x) {
+				document.getElementById('emp_table').innerHTML = x;
+			}
+		});
+	}
+
+	const details =(param)=>{
+		var data = param.split('~!~');
+		var id = data[0];
+		var id_no = data[1];
+		var full_name = data[2];
+		var department = data[3];
+		// var dat_hired = data[4];
+		var remaning_leave = data[4];
+		var status = data[5];
+
+		$('#leave_id').val(id);
+		$('#leave_id_no').val(id_no);
+		$('#leave_full_name').val(full_name);
+		$('#leave_department').val(department);
+		// $('#leave_dat_hired').val(dat_hired);
+		$('#leave_remaning_leave').val(remaning_leave);
+		$('#leave_status').val(status);
+
+		// console.log(param)
+	}
+
+	const modal_whole =()=>{
+		var remaining_leave = document.getElementById('leave_remaning_leave').value;
+		var status = document.getElementById('leave_status').value;
+
+		// console.log(remaining_leave)
+		// console.log(status)
+
+		if (remaining_leave == 0) {
+			 	Swal.fire({
+			  icon: 'error',
+			  title: 'Oops...',
+			  text: 'This employee has 0 leaves ',
+			})
+		}else if(status == 'On Leave'){
+				Swal.fire({
+			  icon: 'error',
+			  title: 'Oops...',
+			  text: 'The Employee is currently on leave',
+			})
+		}else{
+			$('#whole_day').modal('show');
+			$('#modal_emp').modal('hide');
+		}
+	}
+
+
+	const set_leave =()=>{
+		var id_no = document.getElementById('leave_id_no').value;
+		var full_name = document.getElementById('leave_full_name').value;
+		var remaining_leave = document.getElementById('leave_remaning_leave').value;
+		var datefrom = document.getElementById('datefrom').value; 
+		var dateto = document.getElementById('dateto').value;
+		var reason = document.getElementById('reason').value;
+
+		// console.log(id_no)
+		// console.log(full_name)
+		// console.log(datefrom)
+		// console.log(dateto)
+		// console.log(reason)
+
+		if (datefrom == '') {
+			Swal.fire({
+			  icon: 'error',
+			  title: 'Oops...',
+			  text: 'Please Select Date Start',
+			})
+		}else if(dateto == ''){
+			Swal.fire({
+			  icon: 'error',
+			  title: 'Oops...',
+			  text: 'Please Select Date End',
+			})
+		}else if(reason == ''){
+			Swal.fire({
+			  icon: 'error',
+			  title: 'Oops...',
+			  text: 'Please Input Reason',
+			})
+		}else{
+
+			$.ajax({
+				url: '../../process/admin/dashboard_backend.php',
+				type: 'POST',
+				cache: false,
+				data:{
+					method: 'insert_leave_whole',	
+					id_no:id_no,
+					full_name:full_name,
+					remaining_leave:remaining_leave,
+					datefrom:datefrom,
+					dateto:dateto,
+					reason:reason
+				},success:function(x) {
+					console.log(x);
+					// if (x == 'success') {
+					// 	Swal.fire({
+					// 	  icon: 'success',
+					// 	  title: 'Success!!',
+					// 	  text: 'Successfully Set Leave',
+					// 	})
+					// }else{
+					// 	Swal.fire({
+					//   icon: 'error',
+					//   title: 'Oops...',
+					//   text: 'Please Input Reason',
+					// })
+					// }
+				}
+			});
+
+
+
+		}
+	}
+
+
+</script>

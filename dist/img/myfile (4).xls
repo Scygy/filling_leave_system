@@ -1,0 +1,15 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Sheet1</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>
+            <thead>
+              <tr><th>Line Name</th>
+              <th> IP 1</th>
+              <th> Output 1</th>
+            </tr></thead>
+            <tbody id="out1"> </tbody>
+          </table><table>
+            <thead>
+                <tr><th style="color: white;">Line Name</th>
+              <th> IP 2</th>
+              <th> Output 2</th>
+            </tr></thead>
+            <tbody id="out2"> </tbody>
+          </table></body></html>

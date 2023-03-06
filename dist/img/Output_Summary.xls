@@ -1,0 +1,25 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Sheet1</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>
+            <thead>
+              <tr><th>Line Name</th>
+              <th> IP 1</th>
+              <th> Output 1</th>
+            </tr></thead>
+            <tbody id="out1">
+<tr><td>MAZDA_45</td><td>02</td><td>14</td></tr>
+
+
+
+</tbody>
+          </table><table>
+            <thead>
+                <tr><th style="color: white;">Line Name</th>
+              <th> IP 2</th>
+              <th> Output 2</th>
+            </tr></thead>
+            <tbody id="out2">
+<tr><td style="color:white;">MAZDA_45</td><td>01</td><td>14</td></tr>
+
+
+
+</tbody>
+          </table></body></html>

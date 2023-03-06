@@ -1,0 +1,22 @@
+/*@media print{
+  body *: not(#view_packing):not(#view_packing*){
+    visibility: hidden;
+  }
+  #my-section{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+}*/
+
+@media print{
+  body *:not(#pls_magprintka):not(#pls_magprintka*){
+    visibility: hidden;
+  }
+  #pls_magprintka{
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
