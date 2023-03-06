@@ -50,25 +50,26 @@ CREATE TABLE `employee` (
 
 /*Data for the table `employee` */
 
-insert  into `employee`(`id`,`id_no`,`full_name`,`department`,`date_hired`,`remaining_leave`,`salary`,`status`) values (1,'111','John Doe','IT','2022-03-16','24','40000','On Leave(Whole)'),(2,'222','Jane Doe','Accounting','2022-04-16','24','50000','No Leave');
+insert  into `employee`(`id`,`id_no`,`full_name`,`department`,`date_hired`,`remaining_leave`,`salary`,`status`) values (1,'111','John Doe','IT','2022-03-16','22','40000','On Leave(Whole)'),(2,'222','Jane Doe','Accounting','2022-04-16','24','50000','No Leave');
 
-/*Table structure for table `whole_day` */
+/*Table structure for table `leave_table` */
 
-DROP TABLE IF EXISTS `whole_day`;
+DROP TABLE IF EXISTS `leave_table`;
 
-CREATE TABLE `whole_day` (
+CREATE TABLE `leave_table` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
   `id_no` varbinary(150) DEFAULT NULL,
   `full_name` varbinary(255) DEFAULT NULL,
   `datefrom` varbinary(100) DEFAULT NULL,
   `dateto` varbinary(100) DEFAULT NULL,
   `reason` varbinary(255) DEFAULT NULL,
+  `leave_type` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
-/*Data for the table `whole_day` */
+/*Data for the table `leave_table` */
 
-insert  into `whole_day`(`id`,`id_no`,`full_name`,`datefrom`,`dateto`,`reason`) values (1,'111','John Doe','2023-03-07','2023-03-14','reason');
+insert  into `leave_table`(`id`,`id_no`,`full_name`,`datefrom`,`dateto`,`reason`,`leave_type`) values (1,'111','John Doe','2023-03-10','2023-03-13','asdsad','On Leave(Whole)');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

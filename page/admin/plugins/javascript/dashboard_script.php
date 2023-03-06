@@ -55,7 +55,7 @@
 			  title: 'Oops...',
 			  text: 'This employee has 0 leaves ',
 			})
-		}else if(status == 'On Leave'){
+		}else if(status == 'On Leave(Whole)' || status == 'On Leave(Half)'){
 				Swal.fire({
 			  icon: 'error',
 			  title: 'Oops...',
@@ -116,24 +116,51 @@
 					reason:reason
 				},success:function(x) {
 					console.log(x);
-					// if (x == 'success') {
-					// 	Swal.fire({
-					// 	  icon: 'success',
-					// 	  title: 'Success!!',
-					// 	  text: 'Successfully Set Leave',
-					// 	})
-					// }else{
-					// 	Swal.fire({
-					//   icon: 'error',
-					//   title: 'Oops...',
-					//   text: 'Please Input Reason',
-					// })
-					// }
+					if (x == 'success') {
+						Swal.fire({
+						  icon: 'success',
+						  title: 'Success!!',
+						  text: 'Successfully Set Leave',
+						})
+					}else if(x == 'no'){
+						Swal.fire({
+					  icon: 'error',
+					  title: 'Oops...',
+					  text: 'Max of only 2 leaves per month',
+					})
+					}else{
+						Swal.fire({
+					  icon: 'error',
+					  title: 'Oops...',
+					  text: 'Something went wrong!',
+					})
+					}
 				}
 			});
 
+		}
+	}
 
 
+	const modal_half =()=>{
+		var remaining_leave = document.getElementById('leave_remaning_leave').value;
+		var status = document.getElementById('leave_status').value;
+
+		if (remaining_leave == 0) {
+			 	Swal.fire({
+			  icon: 'error',
+			  title: 'Oops...',
+			  text: 'This employee has 0 leaves ',
+			})
+		}else if(status == 'On Leave(Whole)' || status == 'On Leave(Half)'){
+				Swal.fire({
+			  icon: 'error',
+			  title: 'Oops...',
+			  text: 'The Employee is currently on leave',
+			})
+		}else{
+			$('#half_day').modal('show');
+			$('#modal_emp').modal('hide');
 		}
 	}
 

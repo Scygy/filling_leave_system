@@ -38,9 +38,9 @@
 
 <div class="col-12 col-sm-6 col-md-6">
 <div class="info-box">
-<span class="info-box-icon bg-warning elevation-1"><a href=""><i class="fas fa-file-alt"></i></a></span>
+<span class="info-box-icon bg-warning elevation-1"><a href="#" onclick="modal_half()"><i class="fas fa-file-alt"></i></a></span>
 <div class="info-box-content">
-<a href=""><span class="info-box-text"><b>Half Day</b></span></a>
+<a href="#" onclick="modal_half()"><span class="info-box-text"><b>Half Day</b></span></a>
 <span class="info-box-number">
 <small></small>
 </span>

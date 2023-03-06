@@ -7,6 +7,7 @@
   </footer>
 <?php
 //MODALS
+include '../../modals/admin/half_day.php';
 include '../../modals/admin/whole_day.php';
 include '../../modals/logout.php';
 include '../../modals/admin/emp_details.php';

@@ -1,10 +1,10 @@
 
 
-<div class="modal fade bd-example-modal-lg" id="whole_day" tabindex="-1" role="dialog">
+<div class="modal fade bd-example-modal-lg" id="half_day" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Whole Day Filling</h5>
+        <h5 class="modal-title">Half Day Filling</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -15,9 +15,9 @@
           <div class="col-3">
                       <label for="">Date From:</label> <input type="date" name="datefrom" id="datefrom" class="form-control"  autocomplete=off>
                   </div>
-          <div class="col-3">
+          <!-- <div class="col-3">
                        <label for="">Date To:</label>  <input type="date" name="dateto" id="dateto" class="form-control"  autocomplete=off>
-                  </div>
+                  </div> -->
                   <br>
 
 
