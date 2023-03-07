@@ -222,10 +222,9 @@ if ($method == 'insert_leave_whole') {
 				$datefrom1 = $x['datefrom1'];
 				$datefrom = $x['datefrom'];
 
-				echo $no = date_diff($datefrom1,$server_date_only);
 			}
 
-			if ($datefrom1 == $server_date_only) {
+			if ($datefrom1 == $server_date_only || $server_time == '24:00:00') {
 
 				$select = "SELECT employee.id_no, employee.full_name, leave_table.datefrom as datetrue FROM employee LEFT JOIN leave_table ON leave_table.full_name = employee.full_name WHERE leave_table.datefrom = '$datefrom'";
 			$stmt1 = $conn->prepare($select);
@@ -236,16 +235,29 @@ if ($method == 'insert_leave_whole') {
 					$full_name = $a['full_name'];
 				}
 
-				$update = "UPDATE employee SET status "
+				$update = "UPDATE employee SET status = 'Not on Leave' WHERE id_no = '$id_no' AND full_name = '$full_name'";
+				$stmt2 = $conn->prepare($update);
+				if ($stmt2->execute()) {
+					$count = 0;
+				}else{
+					$count = $count + 1;
+				}
+
+
+			}else{
+				$count = $count + 1;
 			}
 			
 			}else{
-			
+					$count = $count + 1;
 			}
 
 
+}else{
+	echo 'no';
+}
 		}
-	}
+	
 
 
 
