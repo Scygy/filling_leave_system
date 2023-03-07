@@ -54,22 +54,20 @@ if ($method == 'insert_leave_whole') {
 		 }
 		 		$start = new DateTime($datefrom);
 				$end = new DateTime($dateto);
-				// otherwise the  end date is excluded (bug?)
+				
 				$end->modify('+1 day');
 				$interval = $end->diff($start);
-				// total days
+				
 				$days = $interval->days;
-				// create an iterateable period of date (P1D equates to 1 day)
 				$period = new DatePeriod($start, new DateInterval('P1D'), $end);
 				foreach($period as $dt) {
 				    $curr = $dt->format('D');
 
-				    // substract if Saturday or Sunday
 				    if ($curr == 'Sat' || $curr == 'Sun') {
 				        $days--;
 				    }
 
-				    // (optional) for the updated question
+				    
 				    elseif ($dt->format('D')) {
 				        $days;
 				    }

@@ -1,0 +1,23 @@
+/***READ ME***/
+
+PHP version need = 7.2 or 7.4
+
+bootstrap used = adminlte(adminlte.oi)
+installed jquery
+installed sweetalert2
+
+import database
+(leave_system.sql)
+
+credentails
+user = admin
+pass = admin
+
+Self Created Employee database(it cannot add employee).
+System can filter or not, data will be shown in the data table
+
+The trigger for applying for leave is in the row data. It is clickable
+
+
+
+ 
