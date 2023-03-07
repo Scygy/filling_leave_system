@@ -1,11 +1,16 @@
 <script type="text/javascript">
+	$( document ).ready(function() {
+    reload_whole();
+    setTimeout(reload_half, 3000);
+	});
+
 	
 	const emp_search =()=>{
 		var emp_id = document.getElementById('emp_id').value;
 		var emp_name = document.getElementById('emp_name').value;
 
-		console.log(emp_id)
-		console.log(emp_name)
+		// console.log(emp_id)
+		// console.log(emp_name)
 
 		$.ajax({
 			url: '../../process/admin/dashboard_backend.php',
@@ -17,6 +22,33 @@
 				emp_name:emp_name
 			},success:function(x) {
 				document.getElementById('emp_table').innerHTML = x;
+			}
+		});
+	}
+
+	const reload_whole =()=>{
+
+		$.ajax({
+			url:'../../process/admin/dashboard_backend.php',
+			type: 'POST',
+			cache: false,
+			data:{
+				method: 'reload_table_whole',
+			},success:function(x) {
+				// console.log(x)
+			}
+		});
+	}
+
+	const reload_half =()=>{
+		$.ajax({
+			url:'../../process/admin/dashboard_backend.php',
+			type: 'POST',
+			cache: false,
+			data:{
+				method: 'reload_table_half',
+			},success:function(x) {
+				console.log(x)
 			}
 		});
 	}
@@ -40,6 +72,8 @@
 		$('#leave_status').val(status);
 
 		// console.log(param)
+
+		leave_history();
 	}
 
 	const modal_whole =()=>{
@@ -115,13 +149,14 @@
 					dateto:dateto,
 					reason:reason
 				},success:function(x) {
-					console.log(x);
+					// console.log(x);
 					if (x == 'success') {
 						Swal.fire({
 						  icon: 'success',
 						  title: 'Success!!',
 						  text: 'Successfully Set Leave',
 						})
+						$('#whole_day').modal('hide');
 					}else if(x == 'no'){
 						Swal.fire({
 					  icon: 'error',
@@ -162,6 +197,79 @@
 			$('#half_day').modal('show');
 			$('#modal_emp').modal('hide');
 		}
+	}
+
+
+	const leave_set =()=>{
+		var id_no = document.getElementById('leave_id_no').value;
+		var full_name = document.getElementById('leave_full_name').value;
+		var remaining_leave = document.getElementById('leave_remaning_leave').value;
+		var datetime = document.getElementById('datetime').value;
+		var reason = document.getElementById('reason').value;
+			// console.log(datetime)
+			// console.log(reason)
+		if (datefrom == '') {
+			Swal.fire({
+			  icon: 'error',
+			  title: 'Oops...',
+			  text: 'Please Select Date',
+			})
+		}else if(reason == ''){
+				Swal.fire({
+			  icon: 'error',
+			  title: 'Oops...',
+			  text: 'This employee has 0 leaves ',
+			})
+		}else{
+			$.ajax({
+				url:'../../process/admin/dashboard_backend.php',
+				type: 'POST',
+				cache: false,
+				data:{
+					method: 'insert_leave_half',
+					id_no:id_no,
+					full_name:full_name,
+					remaining_leave:remaining_leave,
+					datetime:datetime,
+                    reason:reason
+				},success:function(x) {
+					// console.log(x)
+					if (x == 'fail') {
+							Swal.fire({
+						  icon: 'error',
+						  title: 'Oops...',
+						  text: 'Something went wrong!!',
+						})
+					}else{
+						Swal.fire({
+						  icon: 'success',
+						  title: 'Success!!',
+						  text: 'Successfully Set Half Day Leave',
+						})
+						$('#half_day').modal('hide');
+					}
+				}
+			});
+		}
+	}
+
+
+	const leave_history =()=>{
+		var id_no = document.getElementById('leave_id_no').value;
+		var full_name = document.getElementById('leave_full_name').value;
+
+		$.ajax({
+			url:'../../process/admin/dashboard_backend.php',
+			type: 'POST',
+			cache: false,
+			data:{
+				method: 'load_history',
+				id_no:id_no,
+				full_name:full_name
+			},success:function (x) {
+				document.getElementById('leave_history_table').innerHTML = x;
+			}
+		});
 	}
 
 

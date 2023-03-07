@@ -44,13 +44,13 @@ CREATE TABLE `employee` (
   `date_hired` varchar(100) NOT NULL,
   `remaining_leave` varchar(150) NOT NULL DEFAULT '24',
   `salary` varchar(150) NOT NULL,
-  `status` varchar(255) NOT NULL DEFAULT 'No Leave',
+  `status` varchar(255) NOT NULL DEFAULT 'Not on Leave',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `employee` */
 
-insert  into `employee`(`id`,`id_no`,`full_name`,`department`,`date_hired`,`remaining_leave`,`salary`,`status`) values (1,'111','John Doe','IT','2022-03-16','22','40000','On Leave(Whole)'),(2,'222','Jane Doe','Accounting','2022-04-16','24','50000','No Leave');
+insert  into `employee`(`id`,`id_no`,`full_name`,`department`,`date_hired`,`remaining_leave`,`salary`,`status`) values (1,'111','John Doe','IT','2022-03-16','22','40000','On Leave(Whole)'),(2,'222','Jane Doe','Accounting','2022-04-16','16','50000','On Leave(Half)');
 
 /*Table structure for table `leave_table` */
 
@@ -65,11 +65,11 @@ CREATE TABLE `leave_table` (
   `reason` varbinary(255) DEFAULT NULL,
   `leave_type` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `leave_table` */
 
-insert  into `leave_table`(`id`,`id_no`,`full_name`,`datefrom`,`dateto`,`reason`,`leave_type`) values (1,'111','John Doe','2023-03-10','2023-03-13','asdsad','On Leave(Whole)');
+insert  into `leave_table`(`id`,`id_no`,`full_name`,`datefrom`,`dateto`,`reason`,`leave_type`) values (1,'111','John Doe','2023-03-13','2023-03-06','asdsad','Whole Day'),(5,'222','Jane Doe','2023-03-07 14:17','n/a','asdasdasd','Half Day');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

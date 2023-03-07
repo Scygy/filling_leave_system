@@ -45,7 +45,7 @@
                 </div>
               </div>
              <!--  <button class="btn btn-success" id="searchReqBtn" style="width:100px;" onclick="master_export('view_master')">Export <i class="fas fa-file"></i></button> -->
-              <div class="card-body table-responsive p-0" style="height: 420px;">
+              <div class="card-body table-responsive p-0" style="height: 500px;">
                 <table class="table table-head-fixed text-nowrap table-hover" id="view_emp">
                 <thead style="text-align:center;">
                   <!-- <th>

@@ -54,6 +54,42 @@
 </div>
 </div>
 
+<label>Leave History Employee</label>
+<div class="card-body table-responsive p-0" style="height: 400px;">
+                <table class="table table-head-fixed text-nowrap table-hover" id="view_emp">
+                <thead style="text-align:center;">
+                  <!-- <th>
+                        <input type="checkbox" name="" id="check_all"  onclick="select_all_func()">
+                    </th> -->
+                    <th>#</th>
+                    <th>Date From</th>
+                    <th>Date to</th>
+                    <th>Leave Type</th>
+                   
+                    
+            </thead>
+            <tbody id="leave_history_table" style="text-align:center;"></tbody>
+                </table>
+                 <div class="row">
+                  <div class="col-6">
+
+
+                    
+                  </div>
+                  <div class="col-6">
+                      <input type="hidden" name="" id="stocks">
+   
+                    <div class="spinner" id="spinner" style="display:none;">
+                        
+                        <div class="loader float-sm-center"></div>    
+                    </div>
+             
+                  </div>
+
+              </div>
+              <!-- /.card-body -->
+            </div>
+
 
 </div>
       <div class="modal-footer">

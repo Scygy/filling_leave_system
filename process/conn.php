@@ -7,7 +7,8 @@
     $server_date_only = date('Y-m-d');
     $server_time = date('H:i:s');
     $server_year = date('Y');
-    // $dateqr = date('Ymd');
+    $newDate = date('Y-m-d', strtotime('tomorrow'));
+  
 
    
     try {
